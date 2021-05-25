@@ -1,0 +1,467 @@
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    list-style-type: none;
+    outline-style: none;
+  }
+  
+  body {
+    color: rgb(255, 250, 255);
+  }
+  
+  .calendar {
+    position: absolute;
+    height: 120vw;
+    width: 80vw;
+    padding: 2vmin;
+    background-color: #000040;
+    border-radius: 3vmin;
+    border-radius: 20vmin 0 0 20vmin;
+    overflow: hidden;
+    left: 10vw;
+    top: calc(50vh - 60vw);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  
+  @media (orientation: landscape) {
+    .calendar {
+      height: 70vh;
+      width: 140vh;
+      border-radius: 0 15vmin 15vmin 0;
+      top: 15vh;
+      left: calc(50vw - 70vh);
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: row;
+              flex-direction: row;
+    }
+  }
+  
+  .calendar .calendarContainer {
+    height: 60%;
+    width: 100%;
+    padding: 3%;
+    background-color: white;
+    color: #000040;
+    border-radius: 25% 0 0 25%;
+  }
+  
+  @media (orientation: landscape) {
+    .calendar .calendarContainer {
+      height: 100%;
+      width: 60%;
+      border-radius: 0 30% 30% 0;
+    }
+  }
+  
+  .calendar .calendarContainer .calYearContainer {
+    height: 20%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  
+  .calendar .calendarContainer .calYearContainer span {
+    font-weight: bolder;
+    font-size: 7vw;
+    color: #22164e;
+    cursor: pointer;
+  }
+  
+  @media (orientation: landscape) {
+    .calendar .calendarContainer .calYearContainer span {
+      font-size: 4vw;
+    }
+  }
+  
+  .calendar .calendarContainer .calYearContainer span:nth-child(even) {
+    cursor: default;
+    color: #000040;
+    padding: 0 3vw 0 3vw;
+  }
+  
+  @media (orientation: landscape) {
+    .calendar .calendarContainer .calYearContainer span:nth-child(even) {
+      padding: 0 2vw 0 2vw;
+    }
+  }
+  
+  .calendar .calendarContainer .calMonthContainer {
+    height: 10%;
+    width: 100%;
+  }
+  
+  .calendar .calendarContainer .calMonthContainer .calMonth {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+  }
+  
+  .calendar .calendarContainer .calMonthContainer .calMonth li {
+    cursor: pointer;
+    font-size: 2.5vw;
+    color: #aaa;
+  }
+  
+  @media (orientation: landscape) {
+    .calendar .calendarContainer .calMonthContainer .calMonth li {
+      font-size: 1.5vw;
+    }
+  }
+  
+  .calendar .calendarContainer .calMonthContainer .calMonth li:hover {
+    font-weight: bolder;
+    -webkit-transform: scale(1.2, 1.2);
+            transform: scale(1.2, 1.2);
+  }
+  
+  .calendar .calendarContainer .calMonthContainer .calMonth li.active {
+    background-color: #000040;
+    color: white;
+    font-size: bolder;
+    padding: 0 .5%;
+    z-index: 1;
+  }
+  
+  .calendar .calendarContainer .calWeekContainer {
+    height: 10%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  
+  .calendar .calendarContainer .calWeekContainer .calWeek {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    width: 90%;
+  }
+  
+  .calendar .calendarContainer .calWeekContainer .calWeek li {
+    cursor: pointer;
+    width: 10%;
+    margin: 0 calc(30% / 14);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    text-transform: uppercase;
+    font-size: 3vw;
+    font-weight: bolder;
+  }
+  
+  @media (orientation: landscape) {
+    .calendar .calendarContainer .calWeekContainer .calWeek li {
+      font-size: 1.5vw;
+    }
+  }
+  
+  .calendar .calendarContainer .calWeekContainer .calWeek li:hover {
+    -webkit-transform: scale(1.3, 1.3);
+            transform: scale(1.3, 1.3);
+  }
+  
+  .calendar .calendarContainer .calDayContainer {
+    height: 60%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  
+  .calendar .calendarContainer .calDayContainer .calDay {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    width: 90%;
+  }
+  
+  .calendar .calendarContainer .calDayContainer .calDay li {
+    cursor: pointer;
+    width: 10%;
+    margin: 0 calc(30% / 14);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    font-size: 3vw;
+    position: relative;
+  }
+  
+  @media (orientation: landscape) {
+    .calendar .calendarContainer .calDayContainer .calDay li {
+      font-size: 1.5vw;
+      height: 18%;
+    }
+  }
+  
+  .calendar .calendarContainer .calDayContainer .calDay li::after {
+    content: attr(data-day);
+  }
+  
+  .calendar .calendarContainer .calDayContainer .calDay li:hover {
+    border-radius: 50%;
+    -webkit-transform: scale(1.5, 1.5);
+            transform: scale(1.5, 1.5);
+  }
+  
+  .calendar .calendarContainer .calDayContainer .calDay li.another-month {
+    visibility: hidden;
+  }
+  
+  .calendar .calendarContainer .calDayContainer .calDay li.event-day::before {
+    content: '*';
+    color: red;
+    position: absolute;
+    left: 90%;
+    bottom: 60%;
+  }
+  
+  .calendar .calendarContainer .calDayContainer .calDay li.selected-day {
+    background-color: #aaa;
+    border-radius: 50%;
+  }
+  
+  .calendar .calendarContainer .calDayContainer .calDay li.active-day {
+    background-color: #000040;
+    color: white;
+    border-radius: 50%;
+  }
+  
+  .calendar .calEventContainer {
+    height: 40%;
+    width: 100%;
+    padding: 3%;
+    color: white;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    position: relative;
+  }
+  
+  @media (orientation: landscape) {
+    .calendar .calEventContainer {
+      height: 100%;
+      width: 40%;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column;
+    }
+  }
+  
+  .calendar .calEventContainer .eventInfo {
+    border-right: .5vw solid white;
+    height: 100%;
+    width: 30%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  
+  .calendar .calEventContainer .eventInfo .calEventDay {
+    font-size: 18vw;
+  }
+  
+  .calendar .calEventContainer .eventInfo .calEventWeek {
+    font-size: 4.5vw;
+  }
+  
+  @media (orientation: landscape) {
+    .calendar .calEventContainer .eventInfo {
+      border-right: none;
+      border-bottom: .5vh solid white;
+      height: 30%;
+      width: 100%;
+    }
+    .calendar .calEventContainer .eventInfo .calEventDay {
+      font-size: 12vh;
+    }
+    .calendar .calEventContainer .eventInfo .calEventWeek {
+      font-size: 3.2vh;
+    }
+  }
+  
+  .calendar .calEventContainer .actualEvent {
+    height: 100%;
+    width: 70%;
+    padding-left: 3%;
+  }
+  
+  @media (orientation: landscape) {
+    .calendar .calEventContainer .actualEvent {
+      height: 70%;
+      width: 100%;
+    }
+  }
+  
+  .calendar .calEventContainer .actualEvent .current-day-events {
+    height: 75%;
+    width: 100%;
+    font-size: 3.5vw;
+  }
+  
+  .calendar .calEventContainer .actualEvent .current-day-events .calEventList {
+    overflow-y: auto;
+    width: 100%;
+  }
+  
+  .calendar .calEventContainer .actualEvent .current-day-events .calEventList::-webkit-scrollbar {
+    background-color: #000040;
+    width: 2%;
+  }
+  
+  .calendar .calEventContainer .actualEvent .current-day-events .calEventList::-webkit-scrollbar-thumb {
+    background-color: white;
+    width: 9%;
+  }
+  
+  .calendar .calEventContainer .actualEvent .current-day-events .calEventList li {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    padding: 1% 2% 0 5%;
+    cursor: pointer;
+  }
+  
+  .calendar .calEventContainer .actualEvent .current-day-events .calEventList li span {
+    color: red;
+  }
+  
+  .calendar .calEventContainer .actualEvent .current-day-events .calEventList li span:hover {
+    -webkit-transform: scale(1.5, 1.5);
+            transform: scale(1.5, 1.5);
+  }
+  
+  .calendar .calEventContainer .actualEvent .current-day-events .calEventList li b + span {
+    display: none;
+  }
+  
+  @media (orientation: landscape) {
+    .calendar .calEventContainer .actualEvent .current-day-events {
+      font-size: 1.5vw;
+    }
+  }
+  
+  .calendar .calEventContainer .actualEvent .inputContainer {
+    width: 100%;
+    height: 15%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    padding: 0 2% 0 0;
+    border-bottom: 0.2vh solid red;
+    margin-bottom: 2%;
+  }
+  
+  .calendar .calEventContainer .actualEvent .inputContainer .calEventInput {
+    background-color: #000040;
+    color: white;
+    border: 0;
+    width: 95%;
+    font-size: 4vw;
+  }
+  
+  .calendar .calEventContainer .actualEvent .inputContainer .calEventInputAdder {
+    font-weight: bolder;
+    font-size: 5.5vw;
+    cursor: pointer;
+  }
+  
+  .calendar .calEventContainer .actualEvent .inputContainer .calEventInputAdder:hover {
+    -webkit-transform: scale(1.5, 1.5);
+            transform: scale(1.5, 1.5);
+  }
+  
+  @media (orientation: landscape) {
+    .calendar .calEventContainer .actualEvent .inputContainer {
+      height: 5vh;
+    }
+    .calendar .calEventContainer .actualEvent .inputContainer .calEventInput {
+      font-size: 1.5vw;
+    }
+    .calendar .calEventContainer .actualEvent .inputContainer .calEventInputAdder {
+      font-size: 2.2vw;
+    }
+  }
+  
+  .calendar .calEventContainer .actualEvent .calClearBtn {
+    width: 95%;
+    height: 10%;
+    border-radius: 1.1vh;
+    background-color: white;
+    font-size: 3vw;
+    font-weight: bolder;
+  }
+  
+  @media (orientation: landscape) {
+    .calendar .calEventContainer .actualEvent .calClearBtn {
+      height: 4vh;
+      border-radius: 2.2vh;
+      font-size: 1.5vw;
+      font-weight: bolder;
+    }
+  }
+  /*# sourceMappingURL=style.css.map */

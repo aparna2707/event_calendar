@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+    <title>JavaScript calendar</title>
+</head>
+<body>
+
+<div class="calendar" id="calendar">
+    <div class="calendarContainer">
+        <div class="calYearContainer">
+            <span class="calPrevYear">˂</span>
+            <span class="calYear"></span>
+            <span class="calNextYear">˃</span>
+        </div>
+        <div class="calMonthContainer">
+            <ul class="calMonth"></ul>
+        </div>
+        <div class="calWeekContainer">
+            <ul class="calWeek"></ul>
+        </div>
+        <div class="calDayContainer">
+            <ul class="calDay"></ul>
+        </div>
+    </div>
+    <div class="calEventContainer">
+        <div class="eventInfo">
+            <h1 class="calEventDay">.</h1>
+            <div class="calEventWeek"></div>
+        </div>
+        <div class="actualEvent">
+            <div class="current-day-events">
+                <div>Your Events:</div>
+                <ul class="calEventList"></ul>
+            </div>
+            <div class="inputContainer">
+                <input type="text" class="calEventInput" placeholder="add an Event">
+                <span class="calEventInputAdder">+</span>
+            </div>
+            <button class="calClearBtn">Clear Events</button>
+            
+        </div>
+    </div>
+</div>
+</body>
+</html>
